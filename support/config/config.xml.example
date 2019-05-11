@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
+    <log_file>${server.home}/log/wicket.log</log_file>
     <web_config>
         <bind>0.0.0.0:8080</bind>
     </web_config>

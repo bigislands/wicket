@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Config {
     private WebConfig webConfig;
 
+    private String logFile;
+
     @XmlElement(name = "web_config")
     public WebConfig getWebConfig() {
         return webConfig;
@@ -17,5 +19,14 @@ public class Config {
 
     public void setWebConfig(WebConfig webConfig) {
         this.webConfig = webConfig;
+    }
+
+    @XmlElement(name = "log_file")
+    public String getLogFile() {
+        return logFile;
+    }
+
+    public void setLogFile(String logFile) {
+        this.logFile = logFile;
     }
 }

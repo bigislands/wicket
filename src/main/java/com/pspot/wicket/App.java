@@ -4,6 +4,7 @@ import com.gfs.finger.util.JniLoader;
 import com.google.inject.Injector;
 import com.pspot.wicket.config.Config;
 import com.pspot.wicket.server.JettyServerCreator;
+import com.pspot.wicket.support.LoggerConfigurationSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +29,8 @@ public class App extends JettyServerCreator {
             JniLoader jniLoader = new JniLoader();
             jniLoader.loadJniLibrary(serverHome);
             Config config = JAXB.unmarshal(serverHome + File.separator+ "config" + File.separator + "config.xml", Config.class);
+            LoggerConfigurationSupport loggerConfigurationSupport = new LoggerConfigurationSupport();
+            loggerConfigurationSupport.configLogger(config.getLogFile(),"wicket","app","wicket.app");
             start(config.getWebConfig());
             logger.info("start success");
             join();

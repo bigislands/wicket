@@ -25,7 +25,7 @@ public class LoggerConfigurationSupport {
         if (System.getProperty("enable-log") != "true") {
             System.setProperty("log4j.defaultInitOverride", "false");
             Properties properties = new Properties();
-            properties.put("log4j.rootCategory", "error,R");
+            properties.put("log4j.rootCategory", "INFO,stdout,D,E");
             properties.put("log4j.appender.R", "org.apache.log4j.RollingFileAppender");
             properties.put("log4j.appender.R.layout", "org.apache.log4j.PatternLayout");
             properties.put("log4j.appender.R.layout.ConversionPattern", "[" + prefix + "] %d{MM-dd HH:mm:ss} [%p] %m%n");

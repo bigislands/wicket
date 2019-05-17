@@ -23,7 +23,8 @@
             <directory>support/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
-                <include>start.bat</include>
+                <include>start.cmd</include>
+                <include>start-env.cmd</include>
             </includes>
             <fileMode>755</fileMode>
         </fileSet>

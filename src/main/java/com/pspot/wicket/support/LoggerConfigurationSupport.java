@@ -36,8 +36,8 @@ public class LoggerConfigurationSupport {
 
             properties.put("log4j.appender.E", "org.apache.log4j.DailyRollingFileAppender");
             properties.put("log4j.appender.E.layout", "org.apache.log4j.PatternLayout");
-            properties.put("log4j.appender.D.Append","true");
-            properties.put("log4j.appender.D.Threshold","ERROR");
+            properties.put("log4j.appender.E.Append","true");
+            properties.put("log4j.appender.E.Threshold","ERROR");
             properties.put("log4j.appender.E.layout.ConversionPattern", "[" + prefix + "] %d{MM-dd HH:mm:ss} [%p] %m%n");
             properties.put("log4j.appender.E.File", logFile);
             for(String p : loggerPrefix){

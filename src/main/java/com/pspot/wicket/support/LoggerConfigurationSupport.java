@@ -25,13 +25,21 @@ public class LoggerConfigurationSupport {
         if (System.getProperty("enable-log") != "true") {
             System.setProperty("log4j.defaultInitOverride", "false");
             Properties properties = new Properties();
-            properties.put("log4j.rootCategory", "INFO,stdout,D,E");
-            properties.put("log4j.appender.R", "org.apache.log4j.RollingFileAppender");
-            properties.put("log4j.appender.R.layout", "org.apache.log4j.PatternLayout");
-            properties.put("log4j.appender.R.layout.ConversionPattern", "[" + prefix + "] %d{MM-dd HH:mm:ss} [%p] %m%n");
-            properties.put("log4j.appender.R.File", logFile);
-            properties.put("log4j.appender.R.MaxFileSize", "10000KB");
-            properties.put("log4j.appender.R.MaxBackupIndex", "10");
+            properties.put("log4j.rootCategory", "INFO,D,E");
+
+            properties.put("log4j.appender.D", "org.apache.log4j.DailyRollingFileAppender");
+            properties.put("log4j.appender.D.layout", "org.apache.log4j.PatternLayout");
+            properties.put("log4j.appender.D.Append","true");
+            properties.put("log4j.appender.D.Threshold","INFO");
+            properties.put("log4j.appender.D.File", logFile);
+            properties.put("log4j.appender.D.layout.ConversionPattern", "[" + prefix + "] %d{MM-dd HH:mm:ss} [%p] %m%n");
+
+            properties.put("log4j.appender.E", "org.apache.log4j.DailyRollingFileAppender");
+            properties.put("log4j.appender.E.layout", "org.apache.log4j.PatternLayout");
+            properties.put("log4j.appender.D.Append","true");
+            properties.put("log4j.appender.D.Threshold","ERROR");
+            properties.put("log4j.appender.E.layout.ConversionPattern", "[" + prefix + "] %d{MM-dd HH:mm:ss} [%p] %m%n");
+            properties.put("log4j.appender.E.File", logFile);
             for(String p : loggerPrefix){
                 properties.put("log4j.category." + p, "info");
             }
